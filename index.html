@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suraj Pal Portfolio</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+  <script>
+// Simple cookie functions
+function setCookie(name, value, days = 30) {
+  const expires = new Date(Date.now() + days * 864e5).toUTCString();
+  document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
+}
+
+function getCookie(name) {
+  return document.cookie.split('; ').find(row => row.startsWith(name + '='))?.split('=')[1];
+}
+
+function acceptCookies() {
+  setCookie('cookiesAccepted', 'yes');
+  document.getElementById('cookieBanner').style.display = 'none';
+
+  let userName = prompt("What's your name?");
+  if (userName) {
+    setCookie('userName', userName);
+    showGreeting(userName);
+  }
+}
+
+function declineCookies() {
+  document.getElementById('cookieBanner').style.display = 'none';
+}
+
+function showGreeting(name) {
+  const greetEl = document.getElementById('personalGreeting');
+  if (name) {
+    greetEl.textContent = `Nice to see you again, ${decodeURIComponent(name)}! 👋`;
+  }
+}
+
+// Run on page load
+window.onload = function () {
+  showFixedLocation(); // existing function
+
+  const cookiesAccepted = getCookie('cookiesAccepted');
+  const userName = getCookie('userName');
+
+  if (cookiesAccepted === 'yes') {
+    document.getElementById('cookieBanner').style.display = 'none';
+    if (userName) showGreeting(userName);
+  }
+};
+</script>
+
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <!-- Cookie Consent Banner -->
+<div id="cookieBanner" class="fixed bottom-0 w-full bg-indigo-700 text-white text-sm p-4 flex justify-between items-center z-50">
+  <span>We use cookies to personalize your experience. Do you accept?</span>
+  <div>
+    <button onclick="acceptCookies()" class="bg-green-500 px-3 py-1 rounded mr-2">Accept</button>
+    <button onclick="declineCookies()" class="bg-red-500 px-3 py-1 rounded">Decline</button>
+  </div>
+</div>
+
+
+<!-- Navigation Bar -->
+<nav class="bg-indigo-600 text-white shadow-md mb-6">
+  <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+    <h1 class="text-xl font-bold">Suraj Pal</h1>
+    <ul class="flex space-x-6">
+      <li><a href="#welcome" class="hover:underline">Welcome</a></li>
+      <li><a href="#about" class="hover:underline">About</a></li>
+      <li><a href="#achievements" class="hover:underline">Achievements</a></li>
+      <li><a href="#goals" class="hover:underline">Goals</a></li>
+      <li><a href="#personal" class="hover:underline">Personal</a></li>
+      <li><a href="#location" class="hover:underline">location</a></li>
+      <li><a href="shop.html" class="hover:underline">Shop</a></li>
+      <li><a href="#contact" class="hover:underline">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+  <div class="max-w-5xl mx-auto p-4">
+    <!-- Header -->
+    <header class="text-center bg-white rounded-xl shadow-md p-8 mb-6">
+      <h1 class="text-4xl font-bold text-indigo-600">Welcome to My Portfolio</h1>
+      <p class="mt-2 text-lg">Hi, I'm Suraj Pal. Explore my journey and aspirations!</p>
+      <p id="personalGreeting" class="text-indigo-500 mt-2"></p>
+
+    </header>
+
+    <!-- Welcome Section -->
+    <section id="welcome" class="bg-white rounded-xl shadow-md p-6 mb-6">
+      <h2 class="text-2xl font-semibold mb-4">Welcome</h2>
+      <div class="flex flex-col md:flex-row gap-6 items-center">
+        <img src="folio.jpg" alt="Suraj Pal Photo" class="w-48 h-48 object-cover rounded-full shadow-md">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ezWNZJ3YZ0w" title="YouTube Video"
+          frameborder="0" allowfullscreen class="rounded-md shadow-md"></iframe>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-white rounded-xl shadow-md p-6 mb-6">
+      <h2 class="text-2xl font-semibold mb-4">About Me</h2>
+      <ul class="space-y-1">
+        <li><strong>Name:</strong> Suraj Pal</li>
+        <li><strong>Location:</strong> Boisar</li>
+        <li><strong>Education:</strong> Computer Engineering</li>
+        <li><strong>Languages Known:</strong> English, Hindi, Marathi, Sanskrit</li>
+      </ul>
+    </section>
+
+    <!-- Achievements -->
+    <section id="achievements" class="bg-white rounded-xl shadow-md p-6 mb-6">
+      <h2 class="text-2xl font-semibold mb-4">Achievements</h2>
+      <ul class="list-disc list-inside space-y-1">
+        <li>First at Treasure Hunting</li>
+        <li>Intern at Raw Engineering</li>
+      </ul>
+    </section>
+
+    <!-- Goals -->
+    <section id="goals" class="bg-white rounded-xl shadow-md p-6 mb-6">
+      <h2 class="text-2xl font-semibold mb-4">Future Goals</h2>
+      <p>I want to become a web full stack developer.</p>
+    </section>
+
+    <!-- Personal Side -->
+    <section id="personal" class="bg-white rounded-xl shadow-md p-6 mb-6">
+      <h2 class="text-2xl font-semibold mb-4">Personal Side</h2>
+      <ul class="space-y-1">
+        <li><strong>Hobbies:</strong> Learning new things.</li>
+        <li><strong>Role Models:</strong> None</li>
+        <li><strong>Favorite Books:</strong> Rich Dad Poor Dad</li>
+        <li><strong>Favorite Websites/Startups:</strong> Wix Studio</li>
+        <li><strong>Volunteering Experience:</strong> Not done</li>
+      </ul>
+    </section>
+
+    <!-- Live Location -->
+<section id="location" class="bg-white rounded-xl shadow-md p-6 mb-6">
+  <h2 class="text-2xl font-semibold mb-4">My Live Location</h2>
+  <p id="locationStatus" class="text-gray-700 mb-2">Fetching location...</p>
+  <div id="map" class="w-full h-64 rounded-md shadow-inner bg-gray-100 flex items-center justify-center text-sm text-gray-500">
+    Loading map...
+  </div>
+</section>
+
+<script>
+  function initMap(lat, lon) {
+    const mapFrame = `<iframe
+        width="100%"
+        height="100%"
+        style="border:2"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=${lat},${lon}&hl=es;z=14&output=embed">
+      </iframe>`;
+    document.getElementById('map').innerHTML = mapFrame;
+  }
+
+  function showFixedLocation() {
+    const status = document.getElementById('locationStatus');
+    
+    // 🔒 Fixed coordinates — change these to your desired location
+    const lat = 19.80362000;  // Example: New Delhi
+    const lon = 72.75598000;
+    
+    status.textContent = `Latitude: ${lat.toFixed(4)}, Longitude: ${lon.toFixed(4)} (Fixed Location)`;
+    initMap(lat, lon);
+  }
+
+  // Call the function on page load
+  window.onload = showFixedLocation;
+</script>
+
+
+
+
+   <!-- Contact Form -->
+<section id="contact" class="bg-white rounded-xl shadow-md p-6 mb-6">
+  <h2 class="text-2xl font-semibold mb-4">Contact Me</h2>
+  <form action="https://formspree.io/f/xjkwzelv" method="POST" class="space-y-4">
+    <label class="block">
+      <span class="text-gray-700">Your Email:</span>
+      <input type="email" name="email" required
+        class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+    </label>
+    <label class="block">
+      <span class="text-gray-700">Your Message:</span>
+      <textarea name="message" rows="4" required
+        class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+    </label>
+    <!-- Add more fields if needed -->
+    <button type="submit"
+      class="bg-indigo-600 text-white px-6 py-2 rounded-md hover:bg-indigo-700 transition">Send Message</button>
+  </form>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="text-center py-4 text-sm text-gray-600">
+      Contact me at <a href="mailto:surajnarendrapal@gmail.com" class="text-indigo-600 underline">surajnarendrapal@gmail.com</a>
+    </footer>
+  </div>
+
+  <!-- JavaScript: Contact Form Handling -->
+  <script>
+    const form = document.getElementById('contactForm');
+    const responseMsg = document.getElementById('responseMsg');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const formData = {
+        name: form.name.value,
+        email: form.email.value,
+        message: form.message.value
+      };
+
+      fetch('https://example.com/api/contact', { // Replace with your backend URL
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+        .then(response => {
+          if (response.ok) {
+            responseMsg.classList.remove('hidden');
+            form.reset();
+          } else {
+            alert("Failed to send message.");
+          }
+        })
+        .catch(error => {
+          alert("Error: " + error.message);
+        });
+    });
+  </script>
+
+</body>
+</html>
