@@ -1,0 +1,60 @@
+/* shop.css */
+
+/* Light mode default */
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to right, #f0f4ff, #e0ecff);
+  color: #1f2937;
+}
+
+/* Dark mode toggle */
+body.dark {
+  background: linear-gradient(to right, #0f172a, #1e293b);
+  color: #f8fafc;
+}
+
+body.dark #productGrid > div {
+  background-color: #1e293b;
+  border-left-color: #6366f1;
+}
+
+body.dark h2,
+body.dark p.font-bold {
+  color: #a5b4fc;
+}
+
+body.dark #cartItems li {
+  color: #e2e8f0;
+}
+
+#productGrid > div {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease;
+  border-left: 6px solid #6366f1;
+}
+
+#productGrid > div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+#productGrid img {
+  max-height: 8rem;
+  object-fit: contain;
+  width: auto;
+}
+
+button {
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.03);
+}
+
+#searchInput {
+  font-size: 1rem;
+  background-color: #f9fafb;
+}
